@@ -1,29 +1,73 @@
-# Ex. No: 15A - Build a Binary Tree with Float Values
+Ex. No: 15A - Build a Binary Tree with Float Values
 
-## AIM:
+AIM:
 To write a Python program to build a binary tree with a root, left, and right node using floating-point values.
 
----
+ALGORITHM:
+Prompt the user to enter three floating-point values:
 
-## ALGORITHM:
+One for the root node.
 
-1. **Start the program.**
-2. **Import** the `Node` class from the `binarytree` module.
-3. **Create a root node** using the `Node` class and assign a floating-point value.
-4. **Create left and right child nodes** for the root with float values.
-5. **Convert the tree** to a list and print the list of nodes.
-6. **End the program.**
+One for the left child.
 
----
+One for the right child.
 
-## PYTHON PROGRAM
+Step 2: Node Creation
+Create a root node using the entered root value.
+
+Create a left child node using the left value.
+
+Create a right child node using the right value.
+
+Step 3: Tree Construction
+Assign:
+
+Left child to root.left.
+
+Right child to root.right.
+
+Step 4: Display
+Print the structure of the binary tree:
+
+Display the root node.
+
+Show its left and right child values properly formatted (if needed, use two decimal places).
+
+
+PYTHON PROGRAM
+```
+from binarytree import Node
+def _build_bst_from_sorted_values(sorted_values):
+    if len(sorted_values)==0:
+        return None
+    mid=len(sorted_values)//2
+    root=Node(sorted_values[mid])
+    root.left=_build_bst_from_sorted_values(sorted_values[:mid])
+    root.right=_build_bst_from_sorted_values(sorted_values[mid+1:])
+    return (root)
+def insert_BST(val):
+    global a
+    if val in a:
+        return False
+    else:
+        a.append(val)
+        tree=_build_bst_from_sorted_values(sorted(a))
+        return tree
+def display(T):
+    for i in T.values:
+        print(i,"-->",end="")
+a=[3,1,4,2]  
+val=int(input())
+print("BST before insertion:")
+bst=_build_bst_from_sorted_values(sorted(a))
+display(bst)
+t1=insert_BST(val)
+print("\nBST after insertion:")
+display(t1)
 
 ```
-ENTER YOUR CODE
-```
+OUTPUT
+![image](https://github.com/user-attachments/assets/7d8b90eb-8e51-43f6-893d-32ce740abdd9)
 
-## OUTPUT
-```
-```
-
-## RESULT
+RESULT
+Thus the Python program to build a binary tree with a root, left, and right node using floating-point values was successfully implemented and verified.
