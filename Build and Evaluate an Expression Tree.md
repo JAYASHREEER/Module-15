@@ -1,33 +1,49 @@
-# Ex. No: 15E - Build and Evaluate an Expression Tree
+Ex. No: 15E - Build and Evaluate an Expression Tree
 
-## AIM:
+AIM:
 To write a Python program to build and evaluate the given Expression tree.
 
----
+ALGORITHM:
+Build Expression Tree
+Initialize an empty stack.
 
-## ALGORITHM:
+Traverse the postfix expression:
 
-1. **Start the program.**
-2. Create nodes for operators and operands.
-3. Build the expression tree by connecting nodes in the correct hierarchical structure.
-4. Define a recursive function `evaluate(root)`:
-   - If the node is a number (leaf), return it.
-   - Else, recursively evaluate left and right subtrees.
-   - Apply the operator at the current node to the results.
-5. Return the final result from the root node.
-6. **End the program.**
+If the token is an operand:
 
----
+Create a node and push it to the stack.
 
-## PROGRAM:
+If the token is an operator:
 
+Pop two nodes from the stack.
+
+Create a new node with the operator as root and the two popped nodes as right and left children.
+
+Push the new node back to the stack.
+
+After traversal, the stack will have one element — the root of the expression tree.
+
+Evaluate Expression Tree
+Use recursion:
+
+If the node is a leaf (operand), return its value.
+
+Else, recursively evaluate the left and right subtrees.
+
+Apply the operator at the current node to the results of the subtrees.
+
+
+PROGRAM:
 ```
-WRITE YOUR CODE
+from binarytree import Node,build
+x=['*',4,'-',5,'+',2,7]
+x=build(x)
+print(x.inorder)
+print(x.postorder)
 ```
+OUTPUT:
+![image](https://github.com/user-attachments/assets/2027da80-0618-47d7-bfa2-442501186f68)
 
-## OUTPUT:
-```
-```
-
-## RESULT:
+RESULT:
+Thus, Python program to build and evaluate the given Expression tree was successfully implemented and verified.
 
