@@ -1,29 +1,71 @@
-# Ex. No: 15C - Expression Tree with Inorder and Postorder Traversal
+Ex. No: 15C - Expression Tree with Inorder and Postorder Traversal
 
-## AIM:
+AIM:
 To write a Python program to build the given expression tree and print the inorder and postorder traversals.
 
----
+ALGORITHM:
+🔸 1. Build Expression Tree
+Initialize an empty stack.
 
-## ALGORITHM:
+For each token in the postfix expression:
 
-1. **Start the program.**
-2. Import the required modules (`build` and `Node` from `binarytree`).
-3. Define a list `x` representing the expression tree in pre-order fashion (with `None` for missing nodes).
-4. Use the `build()` function to generate the binary tree.
-5. Print the **inorder** and **postorder** traversal of the tree.
-6. **End the program.**
+If the token is an operand (number):
 
----
+Create a new node with the operand.
 
-## PROGRAM:
+Push it to the stack.
+
+If the token is an operator (+, -, *, /):
+
+Pop two nodes from the stack: right, then left.
+
+Create a new node with the operator.
+
+Set its left and right children.
+
+Push this new node back to the stack.
+
+At the end, the top of the stack is the root of the expression tree.
+
+🔸 2. Inorder Traversal (left, root, right)
+Recursively:
+
+Traverse the left subtree.
+
+Visit the root (operator or operand).
+
+Traverse the right subtree.
+
+Add parentheses if desired for clarity.
+
+🔸 3. Postorder Traversal (left, right, root)
+Recursively:
+
+Traverse the left subtree.
+
+Traverse the right subtree.
+
+Visit the root.
+
+
+
+PROGRAM:
 
 ```
-WRITE YOUR CODE
+from binarytree import build
+nodes=[10,12,5,3,4,11,2,None,None,6,7,None,None,None,8]
+root=build(nodes)
+print("Binary tree:")
+for i in (root.values):
+  print(i,"-->",end="")
+print("\nlevel order traversal:",root.levelorder)
+print("\nInorder traversal:",root.inorder)
+print("\nPreorder traversal:",root.preorder)
+print("\nPostorder traversal:",root.postorder)
 ```
 
-## OUTPUT
-```
-```
+OUTPUT
+![image](https://github.com/user-attachments/assets/1c1b14a9-4925-4d27-ac65-06ba2516135b)
 
-## RESULT
+RESULT
+Thus, Python program to build the given expression tree and print the inorder and postorder traversals was uccessfully implemented and verified.
