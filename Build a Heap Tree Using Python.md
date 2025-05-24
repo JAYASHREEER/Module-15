@@ -1,29 +1,39 @@
-# Ex. No: 15D - Build a Heap Tree Using Python
+Ex. No: 15D - Build a Heap Tree Using Python
 
-## AIM:
+AIM:
 To write a Python program to build a heap tree using appropriate Python package and function.
 
----
+ALGORITHM:
+Initialize a list with elements you want to organize into a heap.
 
-## ALGORITHM:
+Import the heapq module.
 
-1. **Start the program.**
-2. Import the `heapq` module.
-3. Define a function `heaptree(H)` that takes a list `H` as input.
-4. Use `heapq.heapify(H)` to convert the list into a min-heap.
-5. Print the created heap.
-6. **End the program.**
+Convert the list into a heap using heapq.heapify(list) — this rearranges the list in-place to satisfy the heap property.
 
----
+You can now:
 
-## PROGRAM:
+Use heapq.heappush(heap, item) to insert an element while maintaining the heap.
+
+Use heapq.heappop(heap) to remove and return the smallest element.
+
+
+PROGRAM:
 
 ```
-WRITE YOUR CODE
+from binarytree import heapq,build,Node
+def heaptree(L):
+    nodes=L
+    root=build(nodes)
+    for i in root.values:
+        print(i,"-->",end="")
+    print("\nHeight : ",root.height)
+    print("Is max heap? : ",root.is_max_heap)
+    print("Is complete tree? : ",root.is_complete)
 ```
 
-## OUTPUT
-```
-```
+OUTPUT
+![image](https://github.com/user-attachments/assets/baf8ea87-c601-4d4d-b570-2c18d0505acd)
 
-## RESULT
+
+RESULT
+Thus, Python program to build a heap tree using appropriate Python package and function was successfully implemeted and verified.
